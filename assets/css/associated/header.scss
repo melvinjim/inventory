@@ -9,6 +9,14 @@ header{
         border-top: 0px;
     }
 
+    .dropdown-toggle-user::after {
+        font: var(--fa-font-solid);
+        content: "\f107";
+        border-top: 0px;
+        color: #313131;
+        margin-left: 7px;
+    }
+
     div.icons{
         justify-content: space-between;
     }
@@ -61,7 +69,7 @@ header{
         background: #737488;
         height: 40px;
         color: #fff;
-        margin-left: 10px;
+        margin-left: 23px;
     }
 
     .cuestion {
@@ -119,5 +127,6 @@ header{
         font: var(--fa-font-solid);
         content: "\f406";
         color: #fff;
+        font-size: 25px;
     }
 }

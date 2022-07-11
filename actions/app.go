@@ -63,7 +63,7 @@ func App() *buffalo.App {
 		// Setup and use translations:
 		app.Use(translations())
 
-		app.GET("/", ListAssociated)
+		app.GET("/", ListInformation)
 
 		app.ServeFiles("/", http.FS(public.FS())) // serve files from the public directory
 	}

@@ -13,7 +13,9 @@ section.list{
     }
 
     .color-text-lines{
-        color: #272727;
+        color: #6b6b6b;
+        font-size: 15px;
+        margin-left: 5px;
     }
 
     .devices{
@@ -54,6 +56,9 @@ section.list{
 
     .number_lines{
         color: #000000;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 20px;
     }
 
     .search{
@@ -62,6 +67,9 @@ section.list{
 
     .search_and_lines{
         justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 25px;
     }
 
     button.filters{
@@ -82,8 +90,23 @@ section.list{
     }
 
     .input_search{
+        width: 370px;
         border-radius: 50px;
         margin-right: 20px;
+        padding: 7px 0px 7px 37px;
+    }
+
+    .search_filter i{
+        position: absolute;
+        margin-left: 14px;
+        color: #66d4ff;
+        font-size: 20px;
+    }
+
+    .input_search::after{
+        font: var(--fa-font-solid);
+        content: "\f107";
+        border-top: 0px;
     }
 
     .border-table{
@@ -178,5 +201,64 @@ section.list{
 
     .person{
         color: #4fbae6;
+    }
+
+    .icons-table::before{
+        font: var(--fa-font-solid);
+        content: "\f0dc";
+        margin-left: 7px;
+        color: #858585;
+    }
+
+    .number-pages{
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .pages{
+        color: #545454;
+    }
+
+    .split{
+        color: #545454;
+        margin-left: 13px;
+    }
+
+    .number-diferent{
+        color: #0aa2e6;
+        margin-left: 18px;
+        margin-right: 12px;
+    }
+
+    .intermediate-number{
+        color: #545454;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .prev{
+        color: #c1c1c1;
+    }
+
+    .number-black{
+        color: #656565;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+    .text-black{
+        color: #656565;
+    }
+
+    .icon-black{
+        margin-bottom: 3px;
+        color: #656565;
+    }
+
+    .number-diferent-right{
+        color: #0aa2e6;
+        margin-left: 18px;
+        margin-right: 12px;
+        margin-left: 12px;
     }
 }

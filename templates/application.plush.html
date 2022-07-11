@@ -12,8 +12,10 @@
   </head>
   <body>
 
+    <%= partial("associated/header.html") %>
     <%= partial("flash.html") %>
     <%= yield %>
+    <%= partial("associated/footer.html") %>
 
     <%= javascriptTag("application.js") %>
   </body>
