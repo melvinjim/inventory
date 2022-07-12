@@ -91,10 +91,9 @@ section.line{
 
     .input_search{
         width: 370px;
-        // border-radius: 50px;
         margin-right: 20px;
         padding: 7px 0px 7px 37px;
-       
+        border: 1px solid #f0f0f0;
     }
 
     .search_filter i{
@@ -293,6 +292,25 @@ section.line{
     }
 
     thead tr td{
-        padding: 20px;
+        padding: 17px;
+    }
+
+    .date{
+        width: 152px;
+    }
+
+    .icons-table-date::before{
+        font: var(--fa-font-solid);
+        content: "\f0dc";
+        margin-left: 56px;
+        color: #858585;
+    }
+
+    .upgrade{
+        width: 118px;
+    }
+
+    .table > thead {
+        vertical-align: middle;
     }
 }

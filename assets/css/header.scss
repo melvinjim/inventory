@@ -40,8 +40,9 @@ header{
     }
 
     .btn-wawandco {
-        color: #115e7e;
+        color: #0081b8;
         align-items: center;
+        font-size: 25px;
         
         .pro{
             display: flex;
@@ -54,6 +55,11 @@ header{
             padding: 5px 10px 5px 10px;
             height: 19px;
         }
+    }
+
+    .btn-user {
+        color: #0081b8;
+        align-items: center;
     }
 
     .btn-wawandco:hover{
