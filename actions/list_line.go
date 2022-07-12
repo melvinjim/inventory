@@ -8,5 +8,5 @@ import (
 
 func ListInformation(c buffalo.Context) error {
 
-	return c.Render(http.StatusOK, r.HTML("list_line/index.plush.html"))
+	return c.Render(http.StatusOK, r.HTML("list_lines/index.plush.html"))
 }

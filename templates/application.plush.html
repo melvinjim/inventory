@@ -11,11 +11,11 @@
     <link rel="icon" href="<%= assetPath("images/favicon.ico") %>">
   </head>
   <body>
-    <div>
-      <%= partial("list_line/header.html") %>
+    <div class="container">
+      <%= partial("header.html") %>
       <%= partial("flash.html") %>
       <%= yield %>
-      <%= partial("list_line/footer.html") %>
+      <%= partial("footer.html") %>
     </div>
     <%= javascriptTag("application.js") %>
   </body>
