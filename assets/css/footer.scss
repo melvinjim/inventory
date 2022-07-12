@@ -1,0 +1,57 @@
+footer.contac-us{
+    background-color: #343434;
+    padding: 15px;
+
+    .text-footer{
+        justify-content: space-between;
+        color: #fff;
+    }
+
+    p{
+        margin: 0px;
+    }
+
+    .copyriht{
+        color: #979797;
+        margin: 7px 0px 0px 0px;
+    }
+
+    .facebook{
+        margin-right: 15px;
+        font-size: 25px;
+        color: #fff;
+    }
+
+    .facebook:hover{
+        color: #1871e6;
+    }
+
+    .twitter{
+        margin-right: 15px;
+        font-size: 25px;
+        color: #fff;
+    }
+
+    .twitter:hover{
+        color: #0ca2e0;
+    }
+
+    .linkedin{
+        margin-right: 15px;
+        font-size: 25px;
+        color: #fff;
+    }
+
+    .linkedin:hover{
+        color: #2463a9;
+    }
+
+    .youtube{
+        font-size: 25px;
+        color: #fff;
+    }
+
+    .youtube:hover{
+        color: rgb(255, 0, 0);
+    }
+}

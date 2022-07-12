@@ -7,15 +7,17 @@
     <%= stylesheetTag("application.css") %>
     <meta name="csrf-param" content="authenticity_token" />
     <meta name="csrf-token" content="<%= authenticity_token %>" />
+    <script src="https://kit.fontawesome.com/14fb058027.js" crossorigin="anonymous"></script>
     <link rel="icon" href="<%= assetPath("images/favicon.ico") %>">
   </head>
   <body>
-
+    <%= partial("header.html") %>
     <div class="container">
       <%= partial("flash.html") %>
       <%= yield %>
     </div>
-
+    <%= partial("footer.html") %>
+    
     <%= javascriptTag("application.js") %>
   </body>
 </html>
