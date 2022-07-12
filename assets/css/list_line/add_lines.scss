@@ -1,21 +1,21 @@
 section.add-line{
     .settings{
-        background-color: #e8f3f5;
+        background-color: #e8f3f5 !important;
         border-radius: 5px;
         padding: 4px;
     }
 
     .inventory{
         background-color: #e8f3f5;
-        color: #257aa5;
+        color: #257aa5 !important;
         border-radius: 5px;
         padding: 4px;
     }
 
     .btn-add{
         align-items: center;
-        background-color: #00aceb;
-        color: #fff;
+        background-color: #00aceb ;
+        color: #fff !important;
     }
 
     .btn-add::after{
@@ -26,5 +26,9 @@ section.add-line{
 
     .lines-menu{
         justify-content: space-between;
+    }
+
+    .lines-menu div button{
+        color: #4a4a4a;
     }
 }

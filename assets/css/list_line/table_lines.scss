@@ -91,9 +91,10 @@ section.line{
 
     .input_search{
         width: 370px;
-        border-radius: 50px;
+        // border-radius: 50px;
         margin-right: 20px;
         padding: 7px 0px 7px 37px;
+       
     }
 
     .search_filter i{
@@ -246,8 +247,8 @@ section.line{
         margin-left: 15px;
     }
 
-    .text-black{
-        color: #656565;
+    .black-test{
+        color: #4a4f59;
     }
 
     .icon-black{
@@ -260,5 +261,38 @@ section.line{
         margin-left: 18px;
         margin-right: 12px;
         margin-left: 12px;
+    }
+
+    .more-options::after {
+        content: none;
+    }
+
+    .more-options:focus {
+        box-shadow: none;
+    }
+
+    .more-options:hover {
+        border: #18b0ec 1px solid;
+        color: #18b0ec;
+    }
+
+    .more-options{
+        height: 26px;
+        display: flex;
+        align-items: center;
+        padding-top: 0px;
+        padding-bottom: 10px;
+    }
+
+    .btn-group > .btn:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-group:not(:last-child) > .btn {
+        border-radius: 5px;
+    }
+
+    tbody tr td {
+        padding: 14px;
+    }
+
+    thead tr td{
+        padding: 20px;
     }
 }
