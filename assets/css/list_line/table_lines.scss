@@ -114,6 +114,9 @@ section.line{
         border-radius: 4px;
         border: solid 1px #dfdfe1;
         margin-top: 20px;
+        border-bottom: none;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
     }
 
     .table > :not(:first-child) {
@@ -123,6 +126,8 @@ section.line{
     .table{
         margin-bottom: 0px;
         font-size: initial;
+        background-color: white;
+        border-radius: 3px;
     }
 
     td span.active{
@@ -329,9 +334,5 @@ section.line{
 
     .table > thead {
         vertical-align: middle;
-    }
-
-    .button-more{
-        justify-content: flex-end;
     }
 }
