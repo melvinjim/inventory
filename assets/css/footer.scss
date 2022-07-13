@@ -1,7 +1,6 @@
 footer.contac-us{
     background-color: #343434;
-    padding: 25px;
-    font-size: 19px;
+    padding: 15px;
 
     .text-footer{
         justify-content: space-between;
@@ -15,7 +14,8 @@ footer.contac-us{
 
     .copyriht{
         color: #979797;
-        margin: 7px 0px 0px 0px;
+        margin-top: 7px;
+        font-size: 14px;
     }
 
     .facebook{
@@ -56,5 +56,10 @@ footer.contac-us{
 
     .youtube:hover{
         color: rgb(255, 0, 0);
+    }
+
+    .links-contac-us{
+        text-decoration: none;
+        color: #fff;
     }
 }
