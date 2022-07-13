@@ -55,39 +55,63 @@
             <td scope="col">Associated To Device <span class="icons-table"> </span></td>
             <td scope="col" class="date">End Contract Date <span class="icons-table-date"></span> </td>
             <td scope="col" class="upgrade">Upgrade Eligibility <span class="icons-table-upgrade"></span> </td>
-            <td scope="col">Line Estatus <span class="icons-table"></span> </td>
+            <td scope="col">Line Status <span class="icons-table"></span> </td>
             <td scope="col"></td>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="color_phone_line">995-438-3430</td>
-            <td>AT&T</td>
-            <td>Free</td>
-            <td>Free</td>
-            <td class="ps-0">Out of Contract</td>
-            <td>07/01/2020</td>
-            <td><span class="label active">ACTIVE</span></td>
-            <td class="button-more">
-              <div class="btn-group">
-                <button type="button" class="more-options btn" data-bs-toggle="dropdown" aria-expanded="false">
-                  ...
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/">View Details</a></li>
-                  <li><a class="dropdown-item" href="/">Associate Line</a></li>
-                  <li><a class="dropdown-item" href="/">Change Contract End Date</a></li>
-                  <li><a class="dropdown-item" href="/">Reset Timer</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="/">Forward Calls to Line in System</a></li>
-                  <li><a class="dropdown-item" href="/">Forward Calls to External Line</a></li>
-                  <li><a class="dropdown-item" href="/">Deactive Line</a></li>
-                  <li><a class="dropdown-item" href="/">Suspend Line</a></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          <tr>
+          <%= for (Lines) in lines { %>
+            <tr>
+              <td class="color_phone_line"><%= Lines.PhoneLine %></td>
+              <td><%= Lines.Carrier %></td>
+              <td><%= Lines.AssociatedTo %></td>
+              <td><%= Lines.AssociatedToDevice %></td>
+              <td class="ps-0"><%= Lines.EndContractDate %></td>
+              <td><%= Lines.UpgradeEligibility %></td>
+              <td>
+                <%= if (Lines.ID.String() == "6c3ac132-02c4-11ed-b939-0242ac120002") { %>
+                  <span class="label active">ACTIVE</span>
+                <% } %>
+                <%= if (Lines.ID.String() == "6c3ac4a2-02c4-11ed-b939-0242ac120002") { %>
+                  <span class="label suspended">SUSPENDED</span>
+                <% } %>
+                <%= if (Lines.ID.String() == "6c3ac5ba-02c4-11ed-b939-0242ac120002") { %>
+                  <span class="label deactivated">DEACTIVATED</span>
+                <% } %>
+                <%= if (Lines.ID.String() == "6c3ac6be-02c4-11ed-b939-0242ac120002") { %>
+                  <span class="label forwarding">FORWARDING CALL</span>
+                <% } %>
+                <%= if (Lines.ID.String() == "7fff7abe-02c4-11ed-b939-0242ac120002") { %>
+                  <span class="label pending_call">PENDING CALL FWD.</span>
+                <% } %>
+                <%= if (Lines.ID.String() == "6c3ac27c-02c4-11ed-b939-0242ac120002") { %>
+                  <span class="label pending_susp">PENDING SUSP.</span>
+                <% } %>
+                <%= if (Lines.ID.String() == "6c3ac394-02c4-11ed-b939-0242ac120002") { %>
+                  <span class="label pending_deact">PENDING DEACT.</span>
+                <% } %>
+              </td>
+              <td class="button-more">
+                <div class="btn-group">
+                  <button type="button" class="more-options btn" data-bs-toggle="dropdown" aria-expanded="false">
+                    ...
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/">View Details</a></li>
+                    <li><a class="dropdown-item" href="/">Associate Line</a></li>
+                    <li><a class="dropdown-item" href="/">Change Contract End Date</a></li>
+                    <li><a class="dropdown-item" href="/">Reset Timer</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/">Forward Calls to Line in System</a></li>
+                    <li><a class="dropdown-item" href="/">Forward Calls to External Line</a></li>
+                    <li><a class="dropdown-item" href="/">Deactive Line</a></li>
+                    <li><a class="dropdown-item" href="/">Suspend Line</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          <% } %>
+          <!-- <tr>
             <td class="color_phone_line">995-438-3430</td>
             <td>T-Mobile</td>
             <td>Free</td>
@@ -275,7 +299,7 @@
                 </ul>
               </div>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
