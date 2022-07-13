@@ -62,7 +62,7 @@
         <tbody>
           <%= for (Lines) in lines { %>
             <tr>
-              <td class="color_phone_line"><%= Lines.PhoneLine %></td>
+              <td><a href="/info-line/<%= Lines.ID %>" class="color_phone_line"><%= Lines.PhoneLine %></a></td>
               <td><%= Lines.Carrier %></td>
               <td><%= Lines.AssociatedTo %></td>
               <td><%= Lines.AssociatedToDevice %></td>
