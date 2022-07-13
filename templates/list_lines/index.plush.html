@@ -60,34 +60,36 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="color_phone_line">995-438-3430</td>
-            <td>AT&T</td>
-            <td>Free</td>
-            <td>Free</td>
-            <td class="ps-0">Out of Contract</td>
-            <td>07/01/2020</td>
-            <td><span class="label active">ACTIVE</span></td>
-            <td class="button-more">
-              <div class="btn-group">
-                <button type="button" class="more-options btn" data-bs-toggle="dropdown" aria-expanded="false">
-                  ...
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/">View Details</a></li>
-                  <li><a class="dropdown-item" href="/">Associate Line</a></li>
-                  <li><a class="dropdown-item" href="/">Change Contract End Date</a></li>
-                  <li><a class="dropdown-item" href="/">Reset Timer</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="/">Forward Calls to Line in System</a></li>
-                  <li><a class="dropdown-item" href="/">Forward Calls to External Line</a></li>
-                  <li><a class="dropdown-item" href="/">Deactive Line</a></li>
-                  <li><a class="dropdown-item" href="/">Suspend Line</a></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          <tr>
+          <%= for (Lines) in lines { %>
+            <tr>
+              <td class="color_phone_line"><%= Lines.PhoneLine %></td>
+              <td><%= Lines.Carrier %></td>
+              <td><%= Lines.AssociatedTo %></td>
+              <td><%= Lines.AssociatedToDevice %></td>
+              <td class="ps-0"><%= Lines.EndContractDate %></td>
+              <td><%= Lines.UpgradeEligibility %></td>
+              <td><span class="label active">ACTIVE</span></td>
+              <td class="button-more">
+                <div class="btn-group">
+                  <button type="button" class="more-options btn" data-bs-toggle="dropdown" aria-expanded="false">
+                    ...
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/">View Details</a></li>
+                    <li><a class="dropdown-item" href="/">Associate Line</a></li>
+                    <li><a class="dropdown-item" href="/">Change Contract End Date</a></li>
+                    <li><a class="dropdown-item" href="/">Reset Timer</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/">Forward Calls to Line in System</a></li>
+                    <li><a class="dropdown-item" href="/">Forward Calls to External Line</a></li>
+                    <li><a class="dropdown-item" href="/">Deactive Line</a></li>
+                    <li><a class="dropdown-item" href="/">Suspend Line</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          <% } %>
+          <!-- <tr>
             <td class="color_phone_line">995-438-3430</td>
             <td>T-Mobile</td>
             <td>Free</td>
@@ -275,7 +277,7 @@
                 </ul>
               </div>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>

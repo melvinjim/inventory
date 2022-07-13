@@ -1,0 +1,1 @@
+drop_column("lines", "line_status")
