@@ -1,4 +1,4 @@
-<section class="add-line">
+<section class="options-line">
   <div class="container d-flex lines-menu">
     <div>
       <button class="btn mt-4 ps-2 pe-2">Home</button>
@@ -16,7 +16,7 @@
           Add Resourse
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="/add-line">Add Line</a></li>
           <li><a class="dropdown-item" href="#">Another action</a></li>
           <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
@@ -64,7 +64,13 @@
             <tr>
               <td><a href="/info-line/<%= Lines.ID %>" class="color_phone_line"><%= Lines.PhoneLine %></a></td>
               <td><%= Lines.Carrier %></td>
-              <td><%= Lines.AssociatedTo %></td>
+              <td>
+                <%= if (Lines.AssociatedTo == "Free") { %>
+                  <%= Lines.AssociatedTo %>
+                <% } else { %>
+                <span class="person"><%= Lines.AssociatedTo %></span>
+                <% } %>
+              </td>
               <td><%= Lines.AssociatedToDevice %></td>
               <td class="ps-0"><%= Lines.EndContractDate %></td>
               <td><%= Lines.UpgradeEligibility %></td>

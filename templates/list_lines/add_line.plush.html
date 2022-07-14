@@ -1,0 +1,61 @@
+<section class="add-line">
+    <div class="container d-flex lines-menu">
+        <div>
+            <button class="btn mt-4 ps-2 pe-2">Home</button>
+            <button class="btn mt-4 ps-2 pe-2">Programs</button>
+            <button class="btn mt-4 ps-2 pe-2">Orders</button>
+            <button class="btn mt-4 ps-2 pe-2">Reimbursements</button>
+            <button class="btn mt-4 ps-2 pe-2">Users</button>
+            <button class="btn mt-4 me-1">Settings</button>
+            <button class="btn mt-4 inventory">Inventory</button>
+            <button class="btn mt-4 ps-2 pe-2">Help Center</button>
+        </div>
+        <div class="d-flex">
+            <div class="mt-4 mb-4 me-3">
+                <a href="/" class="back btn">Cancel</a>
+            </div>
+            <div>
+                <button class="btn d-flex mt-4 mb-4 save" form="save">Save Line</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="add-info-line">
+    <div class="container info-private">
+        <p class="text">DEVICE <i class="fa-solid fa-angle-right"></i> WAWANDCO <i class="fa-solid fa-angle-right"></i> <span>INVENTORY</span> <i class="fa-solid fa-angle-right"></i> <span class="text-color">ADD LINE</span></p>
+        <h5 class="mb-4">Add Phone Line</h5>
+        <div class="d-flex">
+          <p class="mb-0 title-info">Device Details</p>
+          <hr>
+        </div>
+        <p class="mb-2 mt-2 add-info-text">Carrier<span class="obligatory">*</span></p>
+        <%= form({id:"save", action: createLinePath() ,method: "POST"}) { %>
+            <%= f.SelectTag({ options: {"Three" : "Three" , "Two" : "Two", "One" : "One"}, value:  3, name:"carrier", class:"form-select"}) %>
+            <p class="mb-2 mt-2 add-info-text">Phone Number<span class="obligatory">*</span></p>
+            <%= f.InputTag({type:"number", placeholder:"000-000-0000", class:"number-add", name:"number"}) %>
+            <%= if (errors) { %>
+                <div class="msj-error"><%= errors %></div>
+            <% } %>
+            <p class="mb-2 mt-2 add-info-text">ICCID</p>
+            <%= f.InputTag({type:"number"}) %>
+            <p class="mb-2 mt-2 add-info-text">Contract End Date<span class="obligatory">*</span></p>
+            <div class="d-flex">
+                <div class="form-check me-3 select-date">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Select Date
+                    </label>
+                </div>
+                <div class="form-check select-date">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Out of Contract
+                    </label>
+                </div>
+            </div>
+            <p class="mb-2 mt-2 add-info-text">Date</p>
+            <%= f.InputTag({type:"date"}) %>
+        <% } %>
+    </div>
+</section>
