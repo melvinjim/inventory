@@ -62,7 +62,7 @@
         <tbody>
           <%= for (Lines) in lines { %>
             <tr>
-              <td class="color_phone_line"><%= Lines.PhoneLine %></td>
+              <td><a href="/info-line/<%= Lines.ID %>" class="color_phone_line"><%= Lines.PhoneLine %></a></td>
               <td><%= Lines.Carrier %></td>
               <td><%= Lines.AssociatedTo %></td>
               <td><%= Lines.AssociatedToDevice %></td>
@@ -97,7 +97,7 @@
                     ...
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/">View Details</a></li>
+                    <li><a class="dropdown-item" href="/info-line/<%= Lines.ID %>">View Details</a></li>
                     <li><a class="dropdown-item" href="/">Associate Line</a></li>
                     <li><a class="dropdown-item" href="/">Change Contract End Date</a></li>
                     <li><a class="dropdown-item" href="/">Reset Timer</a></li>

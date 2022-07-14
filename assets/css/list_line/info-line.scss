@@ -1,0 +1,226 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+section.info-line{
+    .settings{
+        background-color: #e8f3f5 !important;
+        border-radius: 5px;
+        padding: 4px;
+    }
+
+    .inventory{
+        background-color: #e8f3f5;
+        color: #257aa5 !important;
+        border-radius: 5px;
+        padding: 4px;
+    }
+
+    .btn-add{
+        align-items: center;
+        background-color: #00aceb ;
+        color: #fff !important;
+    }
+
+    .btn-process{
+        align-items: center;
+        background-color: #00aceb ;
+        color: #fff !important;
+    }
+
+    .btn-add::after{
+        font: var(--fa-font-solid);
+        content: "\f107";
+        border-top: 0px;
+    }
+
+    .lines-menu{
+        justify-content: space-between;
+    }
+
+    .lines-menu div button{
+        color: #4a4a4a;
+    }
+    
+    .back::before{
+        color: #fff;
+        font: var(--fa-font-solid);
+        content: "\f104";
+        border-top: 0px;
+        margin-right: 8px;
+    }
+
+    .back{
+        width: 93px;
+        color: #fff;
+        background-color: #9d9d9f;
+    }
+
+}
+
+section.info-person-line{
+    padding: 10px 0px 50px 0px;
+    background-color: #f7f7f7;
+
+
+    .info-private{
+        margin-bottom: 65px;
+    }
+
+    .text{
+        font-size: 12px;
+        color: #919191;
+    
+    }
+
+    .text-color{
+        color: #272727;
+    }
+    .color-text-lines{
+        color: #6b6b6b;
+        font-size: 15px;
+        margin-left: 5px;
+    }
+
+    .devices{
+        color: #4f4f4f;
+        border-bottom: 1px solid #d9d9d9;
+        padding: 0px 13px 3px 10px;
+    }
+
+    .link_devices{
+        color: #4f4f4f;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    hr{
+        width: 76%;
+        color: #848484;
+    }
+
+    .second-hr{
+        width: 76%;
+        color: #848484;
+    }
+
+    .title-info{
+        margin-right: 80px;
+        font-size: 20px;
+    }
+
+    .second-title-info{
+        margin-right: 38px;
+        font-size: 20px;
+    }
+
+    .informarion-fields{
+        color: #4a4a4a;
+    }
+
+    span.active{
+        display: initial;
+        background-color: #5cc406;
+        font-size: 12px;
+        color: #fff;
+        border-radius: 30px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    span.suspended{
+        display: initial;
+        background-color: #74748e;
+        font-size: 12px;
+        color: #fff;
+        border-radius: 30px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    span.deactivated{
+        display: initial;
+        background-color: #e6e6e6;
+        color: #000000;
+        font-size: 12px;
+        border-radius: 30px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    span.forwarding{
+        display: initial;
+        background-color: #0aa2e6;
+        color: #fff;
+        font-size: 12px;
+        border-radius: 30px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    span.pending_call{
+        display: initial;
+        border: 1px solid #35b1df;
+        color: #35b1df;
+        font-size: 12px;
+        border-radius: 30px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    span.pending_susp{
+        display: initial;
+        border: 1px solid #626262;
+        color: #626262;
+        font-size: 12px;
+        border-radius: 30px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    span.pending_deact{
+        display: initial;
+        border: 1px solid #b2b2b2;
+        color: #b2b2b2;
+        font-size: 12px;
+        border-radius: 30px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    span.pemnding_activation{
+        display: initial;
+        border: 1px solid #5cc406;
+        color: #5cc406;
+        font-size: 12px;
+        border-radius: 30px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    .status-info{
+        align-items: flex-end;
+        margin-bottom: 4px;
+    }
+
+    .info-status{
+        padding-right: 90px;
+    }
+
+    .info-carrier{
+        padding-right: 125px;
+    }
+
+    .info-number{
+        padding-right: 62px;
+    }
+
+    .info-date{
+        padding-right: 37px;
+    }
+
+    .info-device{
+        padding-right: 122px;
+    }
+
+    .user{
+        padding-right: 140px;
+    }
+
+    .imei{
+        padding-right: 88px;
+    }
+}
