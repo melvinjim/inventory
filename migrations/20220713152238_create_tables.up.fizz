@@ -6,5 +6,5 @@ t.Column("associated_to", "string", {})
 t.Column("associated_to_device", "string", {})
 t.Column("end_contract_date", "string", {})
 t.Column("upgrade_eligibility", "string", {})
-t.Column("line_status", "string", {"null": true})
+t.Column("imei", "string", {})
 }

@@ -1,3 +1,8 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
 section.info-line{
     .settings{
         background-color: #e8f3f5 !important;
@@ -57,6 +62,11 @@ section.info-line{
 section.info-person-line{
     padding: 10px 0px 50px 0px;
     background-color: #f7f7f7;
+
+
+    .info-private{
+        margin-bottom: 65px;
+    }
 
     .text{
         font-size: 12px;
@@ -204,5 +214,13 @@ section.info-person-line{
 
     .info-device{
         padding-right: 122px;
+    }
+
+    .user{
+        padding-right: 140px;
+    }
+
+    .imei{
+        padding-right: 88px;
     }
 }
