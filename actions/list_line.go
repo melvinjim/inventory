@@ -1,7 +1,6 @@
 package actions
 
 import (
-	"fmt"
 	"inventory/models"
 	"net/http"
 
@@ -32,8 +31,6 @@ func InfoLine(c buffalo.Context) error {
 	if err != nil {
 		return err
 	}
-
-	fmt.Println(lines.EndContractDate)
 
 	c.Set("lines", lines)
 
