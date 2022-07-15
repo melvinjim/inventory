@@ -6,7 +6,7 @@
             <button class="btn mt-4 ps-2 pe-2">Orders</button>
             <button class="btn mt-4 ps-2 pe-2">Reimbursements</button>
             <button class="btn mt-4 ps-2 pe-2">Users</button>
-            <button class="btn mt-4 me-1 settings">Settings</button>
+            <button class="btn mt-4 me-1">Settings</button>
             <button class="btn mt-4 inventory"><strong>Inventory</strong></button>
             <button class="btn mt-4 ps-2 pe-2">Help Center</button>
         </div>
@@ -18,7 +18,7 @@
                 <button class="btn btn-secondary d-flex mt-4 mb-4 btn btn-process" type="button">
                   Process Request
                 </button>
-                <button type="button" class="btn-secondary dropdown-toggle dropdown-toggle-split d-flex mt-4 mb-4 btn btn-add" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn-secondary dropdown-toggle dropdown-toggle-split d-flex mt-4 mb-4 btn btn-drop" data-bs-toggle="dropdown" aria-expanded="false">
                   <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
@@ -87,7 +87,11 @@
                 <p class="informarion-fields mb-0">Contract End Date</p>
             </div>
             <div>
-                <%= lines.EndContractDate %>
+                <%= if (lines.EndContractDate == "Select Date") { %>
+                    <%= lines.CreatedAt.Format("02 January 2006") %>
+                <% } else { %>
+                    <%= lines.EndContractDate %>
+                <% } %>
             </div>
         </div>
         <div class="d-flex">
@@ -95,7 +99,7 @@
                 <p class="informarion-fields mb-3 pe-4">Eligible For Upgrade</p>
             </div>
             <div>
-                <%= lines.UpgradeEligibility %>
+                <%= lines.UpgradeEligibility.Format("02 January 2006") %>
             </div>
         </div>
         <div class="d-flex">

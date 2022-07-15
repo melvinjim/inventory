@@ -1,0 +1,111 @@
+section.add-line{
+    background-color: #f7f7f7;
+
+    .inventory{
+        background-color: #818798;
+        color: #ffffff !important;
+        border-radius: 5px;
+        padding: 4px;
+    }
+
+    .save{
+        align-items: center;
+        background-color: #00aceb ;
+        color: #fff !important;
+        border-color: #00aceb;
+        padding: 5px 17px 7px 17px
+    }
+
+    .lines-menu{
+        justify-content: space-between;
+    }
+
+    .lines-menu div button{
+        color: #4a4a4a;
+    }
+
+    .back{
+        width: 93px;
+        color: #fff;
+        background-color: #9d9d9f;
+    }
+
+}
+
+section.add-info-line{
+    padding: 10px 0px 50px 0px;
+
+    .info-private{
+        margin-bottom: 65px;
+    }
+
+    .text{
+        font-size: 12px;
+        color: #919191;
+    
+    }
+
+    .text-color{
+        color: #272727;
+    }
+    .color-text-lines{
+        color: #6b6b6b;
+        font-size: 15px;
+        margin-left: 5px;
+    }
+
+    .title-info{
+        margin-right: 80px;
+        font-size: 20px;
+    }
+
+    hr{
+        width: 84%;
+        color: #848484;
+    }
+
+    .add-info-text{
+        color: #686a69;
+    }
+
+    .obligatory{
+        color: #c23d14;
+    }
+
+    .text-color-select{
+        color: #b1b3b9;
+    }
+
+    ::placeholder{
+        color: #b1b3b9;
+    }
+    
+    .msj-error{
+        color: #d40000;
+    }
+
+    .select-date{
+        border: 1px solid #c7c8cc;
+        border-radius: 3px;
+        padding: 10px 44px 10px 35px;
+    }
+
+    .select-date-contract{
+        border: 1px solid #c7c8cc;
+        border-radius: 3px;
+        padding: 10px 44px 10px 35px;
+    }
+
+    .select-date-contract:hover{
+        border: #00aceb 1px solid;
+    }
+
+    .select-date:hover{
+        border: #00aceb 1px solid;
+    }
+    
+    .radios-b {
+        display: flex;
+        padding: 0;
+    }
+}

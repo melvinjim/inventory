@@ -4,11 +4,6 @@ html {
 }
 
 section.info-line{
-    .settings{
-        background-color: #e8f3f5 !important;
-        border-radius: 5px;
-        padding: 4px;
-    }
 
     .inventory{
         background-color: #e8f3f5;
@@ -17,19 +12,25 @@ section.info-line{
         padding: 4px;
     }
 
-    .btn-add{
+    .btn-drop{
         align-items: center;
         background-color: #00aceb ;
         color: #fff !important;
+        border-left-color: #0aa2e6;
+        border-top-color: #00aceb;
+        border-right-color: #00aceb;
+        border-bottom-color: #00aceb;
     }
 
     .btn-process{
         align-items: center;
         background-color: #00aceb ;
         color: #fff !important;
+        border-color: #00aceb;
+        border-bottom-right-radius: 0px;
     }
 
-    .btn-add::after{
+    .btn-drop::after{
         font: var(--fa-font-solid);
         content: "\f107";
         border-top: 0px;
@@ -205,11 +206,11 @@ section.info-person-line{
     }
 
     .info-number{
-        padding-right: 62px;
+        padding-right: 66px;
     }
 
     .info-date{
-        padding-right: 37px;
+        padding-right: 41px;
     }
 
     .info-device{
