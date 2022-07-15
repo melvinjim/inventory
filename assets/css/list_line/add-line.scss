@@ -79,16 +79,9 @@ section.add-info-line{
     ::placeholder{
         color: #b1b3b9;
     }
-
+    
     .msj-error{
         color: #d40000;
-    }
-
-    .msj-error::after{
-        font: var(--fa-font-solid);
-        content: "\f106";
-        border-top: 0px;
-        margin-left: 5px;
     }
 
     .select-date{
@@ -96,5 +89,23 @@ section.add-info-line{
         border-radius: 3px;
         padding: 10px 44px 10px 35px;
     }
+
+    .select-date-contract{
+        border: 1px solid #c7c8cc;
+        border-radius: 3px;
+        padding: 10px 44px 10px 35px;
+    }
+
+    .select-date-contract:hover{
+        border: #00aceb 1px solid;
+    }
+
+    .select-date:hover{
+        border: #00aceb 1px solid;
+    }
     
+    .radios-b {
+        display: flex;
+        padding: 0;
+    }
 }

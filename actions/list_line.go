@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"fmt"
 	"inventory/models"
 	"net/http"
 
@@ -32,6 +33,8 @@ func InfoLine(c buffalo.Context) error {
 		return err
 	}
 
+	fmt.Println(lines.EndContractDate)
+
 	c.Set("lines", lines)
 
 	return c.Render(http.StatusOK, r.HTML("list_lines/info_line.plush.html"))
@@ -52,14 +55,22 @@ func CreateLine(c buffalo.Context) error {
 		return err
 	}
 
-	verrs, err := tx.ValidateAndCreate(&line)
+	verrs, err := line.Validate(tx)
 	if err != nil {
 		return err
 	}
 
 	if verrs.HasAny() {
-		c.Set("errors", verrs.Get("number"))
+		c.Set("line", line)
+		c.Set("errors-phone", verrs.Get("phone_line"))
+		c.Set("errors-carrier", verrs.Get("carrier"))
+		c.Set("errors-end_contract_date", verrs.Get("end_contract_date"))
 		return c.Render(http.StatusOK, r.HTML("list_lines/add_line.plush.html"))
+	}
+
+	errCreate := tx.Create(&line)
+	if errCreate != nil {
+		return errCreate
 	}
 
 	return c.Redirect(http.StatusSeeOther, "/")

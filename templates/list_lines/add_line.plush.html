@@ -31,31 +31,37 @@
         </div>
         <p class="mb-2 mt-2 add-info-text">Carrier<span class="obligatory">*</span></p>
         <%= form({id:"save", action: createLinePath() ,method: "POST"}) { %>
-            <%= f.SelectTag({ options: {"Three" : "Three" , "Two" : "Two", "One" : "One"}, value:  3, name:"carrier", class:"form-select"}) %>
+            <%= f.SelectTag({ options: {"Sprint" : "Sprint" , "AT&T" : "AT&T", "T-Mobile" : "T-Mobile", "U.S.cellular" : "U.S.cellular", "Verizon" : "Verizon"}, value:  3, name:"carrier", class:"form-select"}) %>
+            <%= if (errors-carrier) { %>
+                <div class="msj-error-carrier"><%= errors-carrier %></div>
+            <% } %>
             <p class="mb-2 mt-2 add-info-text">Phone Number<span class="obligatory">*</span></p>
-            <%= f.InputTag({type:"number", placeholder:"000-000-0000", class:"number-add", name:"number"}) %>
-            <%= if (errors) { %>
-                <div class="msj-error"><%= errors %></div>
+            <%= f.InputTag({type:"text", placeholder:"000-000-0000", class:"number-add", name:"phone_line"}) %>
+            <%= if (errors-phone) { %>
+                <div class="msj-error"><%= errors-phone %></div>
             <% } %>
             <p class="mb-2 mt-2 add-info-text">ICCID</p>
-            <%= f.InputTag({type:"number"}) %>
+            <%= f.InputTag({type:"number", name:"iccid"}) %>
             <p class="mb-2 mt-2 add-info-text">Contract End Date<span class="obligatory">*</span></p>
             <div class="d-flex">
                 <div class="form-check me-3 select-date">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Select Date
+                    <%= f.InputTag({name:"end_contract_date", class:"form-check-input radios-b", type:"radio", id:"gridRadios1", value: "Select Date" }) %>
+                    <label class="form-check-label text-r" for="gridRadios1">
+                        Select Date
                     </label>
                 </div>
-                <div class="form-check select-date">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <div class="form-check select-date-contract">
+                    <%= f.InputTag({name:"end_contract_date", class:"form-check-input radios-b", type:"radio", id:"gridRadios2", value: "Out of Contract" }) %>
                     <label class="form-check-label" for="flexRadioDefault2">
-                      Out of Contract
+                        Out of Contract
                     </label>
                 </div>
             </div>
+            <%= if (errors-end_contract_date) { %>
+                <div class="msj-error"><%= errors-end_contract_date %></div>
+            <% } %>
             <p class="mb-2 mt-2 add-info-text">Date</p>
-            <%= f.InputTag({type:"date"}) %>
+            <%= f.InputTag({type:"date", name:"upgrade_eligibility"})%>
         <% } %>
     </div>
 </section>
