@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"fmt"
 	"inventory/models"
 	"net/http"
 
@@ -12,11 +13,22 @@ func ListInformation(c buffalo.Context) error {
 	tx := c.Value("tx").(*pop.Connection)
 
 	lines := []models.Lines{}
-	err := tx.All(&lines)
+
+	FilterInformation := c.Param("filter_information")
+
+	q := tx.Q()
+
+	if FilterInformation != "" {
+		n := fmt.Sprintf("%%%v%%", FilterInformation)
+		q = tx.Where("carrier like ? OR phone_line like ? OR end_contract_date like ?", n, n, n)
+	}
+
+	err := q.All(&lines)
 	if err != nil {
 		return err
 	}
 
+	c.Set("count", len(lines))
 	c.Set("lines", lines)
 
 	return c.Render(http.StatusOK, r.HTML("list_lines/index.plush.html"))
@@ -68,6 +80,49 @@ func CreateLine(c buffalo.Context) error {
 	errCreate := tx.Create(&line)
 	if errCreate != nil {
 		return errCreate
+	}
+
+	return c.Redirect(http.StatusSeeOther, "/")
+}
+
+func Edit(c buffalo.Context) error {
+	tx := c.Value("tx").(*pop.Connection)
+
+	lines := models.Lines{}
+	linesID := c.Param("user_id")
+
+	err := tx.Find(&lines, linesID)
+	if err != nil {
+		return err
+	}
+
+	if lines.EndContractDate != "Out of Contract" {
+		fmt.Println(lines.EndContractDate)
+	}
+
+	c.Set("lines", lines)
+
+	return c.Render(http.StatusOK, r.HTML("list_lines/edit.plush.html"))
+}
+
+func EditLine(c buffalo.Context) error {
+	tx := c.Value("tx").(*pop.Connection)
+
+	lines := models.Lines{}
+	linesID := c.Param("user_id")
+
+	err := tx.Find(&lines, linesID)
+	if err != nil {
+		return err
+	}
+
+	if err := c.Bind(&lines); err != nil {
+		return err
+	}
+
+	err = tx.Update(&lines)
+	if err != nil {
+		return err
 	}
 
 	return c.Redirect(http.StatusSeeOther, "/")
