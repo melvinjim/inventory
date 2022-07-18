@@ -38,10 +38,12 @@
       <div class="border-bottom"></div>
     </div>
     <div class="d-flex search_and_lines">
-      <p class="number_lines">50 <span class="color-text-lines">Line</span></p>
+      <p class="number_lines"><%= count %> <span class="color-text-lines">Line</span></p>
       <div class="search_filter">
         <i class="fa-solid fa-magnifying-glass "></i>
-        <input type="text" placeholder="Search (e.g. by User, carrier)" class="input_search rounded-pill">
+        <%= form({action: rootPath(), method: "GET"}) { %>
+          <%= f.InputTag({name:"filter_information", class:"input_search rounded-pill", type:"text", placeholder:"Search (e.g. By Name)" }) %>
+        <% } %>
         <button class="btn filters">Filters</button>
       </div>
     </div>
@@ -81,7 +83,10 @@
               </td>
               <td><%= Lines.UpgradeEligibility.Format("02/01/2006") %></td>
               <td>
-                <%= if (Lines.ID.String() == "6c3ac132-02c4-11ed-b939-0242ac120002") { %>
+                <%= if (Lines.ID.String() == Lines.ID.String()) { %>
+                  <span class="label active">ACTIVE</span>
+                <% } %>
+                <!-- <%= if (Lines.ID.String() == "6c3ac132-02c4-11ed-b939-0242ac120002") { %>
                   <span class="label active">ACTIVE</span>
                 <% } %>
                 <%= if (Lines.ID.String() == "6c3ac4a2-02c4-11ed-b939-0242ac120002") { %>
@@ -101,7 +106,7 @@
                 <% } %>
                 <%= if (Lines.ID.String() == "6c3ac394-02c4-11ed-b939-0242ac120002") { %>
                   <span class="label pending_deact">PENDING DEACT.</span>
-                <% } %>
+                <% } %> -->
               </td>
               <td class="button-more">
                 <div class="btn-group">
@@ -111,7 +116,7 @@
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/info-line/<%= Lines.ID %>">View Details</a></li>
                     <li><a class="dropdown-item" href="/">Associate Line</a></li>
-                    <li><a class="dropdown-item" href="/">Change Contract End Date</a></li>
+                    <li><a class="dropdown-item" href="/edit/<%= Lines.ID %>">Change Contract End Date</a></li>
                     <li><a class="dropdown-item" href="/">Reset Timer</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="/">Forward Calls to Line in System</a></li>

@@ -67,6 +67,8 @@ func App() *buffalo.App {
 		app.GET("/info-line/{user_id}", InfoLine)
 		app.GET("/add-line", AddLine)
 		app.POST("/create-line", CreateLine)
+		app.GET("/edit/{user_id}", Edit)
+		app.PUT("/edit-line/{user_id}", EditLine)
 
 		app.ServeFiles("/", http.FS(public.FS())) // serve files from the public directory
 	}
