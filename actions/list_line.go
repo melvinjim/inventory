@@ -13,6 +13,7 @@ func ListInformation(c buffalo.Context) error {
 	tx := c.Value("tx").(*pop.Connection)
 
 	lines := []models.Lines{}
+	line := &models.Lines{}
 
 	FilterInformation := c.Param("filter_information")
 
@@ -30,6 +31,7 @@ func ListInformation(c buffalo.Context) error {
 
 	c.Set("count", len(lines))
 	c.Set("lines", lines)
+	c.Set("line", line)
 
 	return c.Render(http.StatusOK, r.HTML("list_lines/index.plush.html"))
 }
@@ -96,10 +98,6 @@ func Edit(c buffalo.Context) error {
 		return err
 	}
 
-	if lines.EndContractDate != "Out of Contract" {
-		fmt.Println(lines.EndContractDate)
-	}
-
 	c.Set("lines", lines)
 
 	return c.Render(http.StatusOK, r.HTML("list_lines/edit.plush.html"))
@@ -121,6 +119,25 @@ func EditLine(c buffalo.Context) error {
 	}
 
 	err = tx.Update(&lines)
+	if err != nil {
+		return err
+	}
+
+	return c.Redirect(http.StatusSeeOther, "/")
+}
+
+func DeleteLine(c buffalo.Context) error {
+	tx := c.Value("tx").(*pop.Connection)
+
+	line := models.Lines{}
+	lineID := c.Param("user_id")
+
+	err := tx.Find(&line, lineID)
+	if err != nil {
+		return err
+	}
+
+	err = tx.Destroy(&line)
 	if err != nil {
 		return err
 	}

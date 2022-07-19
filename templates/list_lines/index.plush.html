@@ -41,10 +41,10 @@
       <p class="number_lines"><%= count %> <span class="color-text-lines">Line</span></p>
       <div class="search_filter">
         <i class="fa-solid fa-magnifying-glass "></i>
-        <%= form({action: rootPath(), method: "GET"}) { %>
+        <%= form({action: rootPath(), method: "GET", id:"filter"}) { %>
           <%= f.InputTag({name:"filter_information", class:"input_search rounded-pill", type:"text", placeholder:"Search (e.g. By Name)" }) %>
         <% } %>
-        <button class="btn filters">Filters</button>
+        <button class="btn filters" form="filter">Filters</button>
       </div>
     </div>
     <div class="border-table">
@@ -86,27 +86,6 @@
                 <%= if (Lines.ID.String() == Lines.ID.String()) { %>
                   <span class="label active">ACTIVE</span>
                 <% } %>
-                <!-- <%= if (Lines.ID.String() == "6c3ac132-02c4-11ed-b939-0242ac120002") { %>
-                  <span class="label active">ACTIVE</span>
-                <% } %>
-                <%= if (Lines.ID.String() == "6c3ac4a2-02c4-11ed-b939-0242ac120002") { %>
-                  <span class="label suspended">SUSPENDED</span>
-                <% } %>
-                <%= if (Lines.ID.String() == "6c3ac5ba-02c4-11ed-b939-0242ac120002") { %>
-                  <span class="label deactivated">DEACTIVATED</span>
-                <% } %>
-                <%= if (Lines.ID.String() == "6c3ac6be-02c4-11ed-b939-0242ac120002") { %>
-                  <span class="label forwarding">FORWARDING CALL</span>
-                <% } %>
-                <%= if (Lines.ID.String() == "7fff7abe-02c4-11ed-b939-0242ac120002") { %>
-                  <span class="label pending_call">PENDING CALL FWD.</span>
-                <% } %>
-                <%= if (Lines.ID.String() == "6c3ac27c-02c4-11ed-b939-0242ac120002") { %>
-                  <span class="label pending_susp">PENDING SUSP.</span>
-                <% } %>
-                <%= if (Lines.ID.String() == "6c3ac394-02c4-11ed-b939-0242ac120002") { %>
-                  <span class="label pending_deact">PENDING DEACT.</span>
-                <% } %> -->
               </td>
               <td class="button-more">
                 <div class="btn-group">
@@ -123,6 +102,7 @@
                     <li><a class="dropdown-item" href="/">Forward Calls to External Line</a></li>
                     <li><a class="dropdown-item" href="/">Deactive Line</a></li>
                     <li><a class="dropdown-item" href="/">Suspend Line</a></li>
+                    <li><%= linkTo(	deleteUserIDPath({user_id: Lines.ID}), {class: "dropdown-item", data-method:"DELETE"}) { %> Remove <% } %></li>
                   </ul>
                 </div>
               </td>
