@@ -19,6 +19,7 @@ type Lines struct {
 	UpgradeEligibility time.Time `form:"upgrade_eligibility" db:"upgrade_eligibility"`
 	IMEI               string    `form:"imei" db:"imei"`
 	IICD               string    `form:"iccid" db:"iccid"`
+	Status             string    `form:"status" db:"status"`
 	CreatedAt          time.Time `form:"created_at" db:"created_at"`
 	UpdatedAt          time.Time `form:"updated_at" db:"updated_at"`
 }
@@ -29,4 +30,13 @@ func (l *Lines) Validate(tx *pop.Connection) (*validate.Errors, error) {
 		&validators.StringIsPresent{Field: l.Carrier, Name: "carrier", Message: "This field is required"},
 		&validators.StringIsPresent{Field: l.EndContractDate, Name: "end_contract_date", Message: "You must select some of these two fields."},
 	), nil
+}
+
+func (l *Lines) StatusEdit(tx *pop.Connection, param string) {
+	if param == "Deactivated" || param == "Suspend" || param == "Active" {
+		err := tx.Update(l)
+		if err != nil {
+			return
+		}
+	}
 }

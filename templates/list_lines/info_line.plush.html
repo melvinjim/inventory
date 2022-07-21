@@ -43,8 +43,14 @@
                 <p class="informarion-fields mb-0 mt-3">Line Status</p>
             </div>
             <div>
-                <%= if (lines.ID.String() == lines.ID.String()) { %>
+                <%= if (lines.Status == "Active") { %>
                     <span class="label active">ACTIVE</span>
+                <% } %>
+                <%= if (lines.Status == "Deactivated") { %>
+                    <span class="label deactivated">DEACTIVATED</span>
+                <% } %>
+                <%= if (lines.Status == "Suspend") { %>
+                    <span class="label suspended">SUSPENDED</span>
                 <% } %>
             </div>
         </div>
