@@ -21,7 +21,7 @@ func ListInformation(c buffalo.Context) error {
 
 	if FilterInformation != "" {
 		n := fmt.Sprintf("%%%v%%", FilterInformation)
-		q = tx.Where("carrier like ? OR phone_line like ? OR end_contract_date like ?", n, n, n)
+		q = tx.Where("carrier like ? OR phone_line like ? OR end_contract_date like ? OR status like ?", n, n, n, n)
 	}
 
 	err := q.All(&lines)
@@ -141,6 +141,22 @@ func DeleteLine(c buffalo.Context) error {
 	if err != nil {
 		return err
 	}
+
+	return c.Redirect(http.StatusSeeOther, "/")
+}
+
+func Status(c buffalo.Context) error {
+	tx := c.Value("tx").(*pop.Connection)
+
+	line := &models.Lines{}
+
+	if err := tx.Find(line, c.Param("user_id")); err != nil {
+		return c.Error(http.StatusNotFound, err)
+	}
+
+	line.Status = c.Param("value")
+
+	line.StatusEdit(tx, c.Param("value"))
 
 	return c.Redirect(http.StatusSeeOther, "/")
 }

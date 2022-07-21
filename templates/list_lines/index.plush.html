@@ -83,8 +83,14 @@
               </td>
               <td><%= Lines.UpgradeEligibility.Format("02/01/2006") %></td>
               <td>
-                <%= if (Lines.ID.String() == Lines.ID.String()) { %>
+                <%= if (Lines.Status == "Active") { %>
                   <span class="label active">ACTIVE</span>
+                <% } %>
+                <%= if (Lines.Status == "Deactivated") { %>
+                  <span class="label deactivated">DEACTIVATED</span>
+                <% } %>
+                <%= if (Lines.Status == "Suspend") { %>
+                  <span class="label suspended">SUSPENDED</span>
                 <% } %>
               </td>
               <td class="button-more">
@@ -100,9 +106,10 @@
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="/">Forward Calls to Line in System</a></li>
                     <li><a class="dropdown-item" href="/">Forward Calls to External Line</a></li>
-                    <li><a class="dropdown-item" href="/">Deactive Line</a></li>
-                    <li><a class="dropdown-item" href="/">Suspend Line</a></li>
-                    <li><%= linkTo(	deleteUserIDPath({user_id: Lines.ID}), {class: "dropdown-item", data-method:"DELETE"}) { %> Remove <% } %></li>
+                    <li><%= linkTo(	statusUserIDPath({user_id: Lines.ID, value:"Deactivated"}), {class: "dropdown-item"}) { %> Deactive Line <% } %></li>
+                    <li><%= linkTo(	statusUserIDPath({user_id: Lines.ID, value:"Suspend"}), {class: "dropdown-item"}) { %> Suspend Line <% } %></li>
+                    <li><%= linkTo(	statusUserIDPath({user_id: Lines.ID, value:"Active"}), {class: "dropdown-item"}) { %> Active Line <% } %></li>
+                    <li><%= linkTo(	deleteUserIDPath({user_id: Lines.ID}), {class: "dropdown-item", data-method:"DELETE", data-confirm:"Are you sure?"}) { %> Remove <% } %></li>
                   </ul>
                 </div>
               </td>
