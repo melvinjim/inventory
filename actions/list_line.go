@@ -17,20 +17,20 @@ func ListInformation(c buffalo.Context) error {
 
 	FilterInformation := c.Param("filter_information")
 
+	q := tx.Q()
+
 	if FilterInformation != "" {
 		n := fmt.Sprintf("%%%v%%", FilterInformation)
-		q := tx.Where("carrier like ? OR phone_line like ? OR end_contract_date like ? OR status like ?", n, n, n, n)
-		err := q.All(&lines)
-		if err != nil {
-			return err
-		}
+		q = tx.Where("carrier like ? OR phone_line like ? OR end_contract_date like ? OR status like ?", n, n, n, n)
 	}
 
-	pag := tx.PaginateFromParams(c.Params())
+	pag := q.PaginateFromParams(c.Params())
 	err := pag.All(&lines)
 	if err != nil {
 		return err
 	}
+
+	fmt.Println(pag)
 
 	c.Set("pagination", pag.Paginator)
 	c.Set("count", len(lines))

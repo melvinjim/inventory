@@ -336,4 +336,50 @@ section.line{
     .table > thead {
         vertical-align: middle;
     }
+
+    .page-item.active .page-link {
+        color: #17b1ee;
+        pointer-events: none;
+        background-color: #f7f7f7;
+        border: 1px solid #f7f7f7;
+    }
+
+    .page-link {
+        position: relative;
+        display: block;
+        color: #4a4f59;
+        text-decoration: none;
+        background-color: #f7f7f7; 
+        border: 1px solid #f7f7f7; 
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .page-item.disabled .page-link {
+        color: #c3c5c6;
+        pointer-events: none;
+        background-color: #f7f7f7;
+        border: 1px solid #f7f7f7;
+    }
+
+    .page-link:focus {
+        box-shadow: none;
+    }
+
+    .page-item:first-child .page-link::after {
+        visibility: visible;
+        content:'< Prev';
+    }
+
+    .page-item:first-child {
+        visibility: hidden;
+    }
+
+    .page-item:last-child {
+        visibility: hidden;
+    }
+
+    .page-item:last-child .page-link::before {
+        visibility: visible;
+        content: 'Next >' !important;
+    }
 }
